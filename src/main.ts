@@ -14,6 +14,9 @@ import '@mdi/font/css/materialdesignicons.css'
 // Auto Animate
 import autoAnimate from '@formkit/auto-animate'
 
+// i18n
+import i18n from './i18n'
+
 const vuetify = createVuetify({
   components,
   directives,
@@ -21,13 +24,15 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 
+// Global directive
 app.directive('auto-animate', {
   mounted(el) {
     autoAnimate(el)
-  }
+  },
 })
 
-app
-  .use(router)
-  .use(vuetify)
-  .mount('#app')
+// Order matters: Vuetify first
+app.use(vuetify)
+app.use(router)
+app.use(i18n)
+app.mount('#app')

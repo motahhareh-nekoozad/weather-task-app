@@ -9,5 +9,6 @@
   "theme": "Theme",
   "language": "Language",
   "weather": "Weather",
-  "home": "Home"
+  "home": "Home",
+  "name": "Name"
 }
