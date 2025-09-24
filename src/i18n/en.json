@@ -1,0 +1,13 @@
+{
+  "greeting": "Hello",
+  "goodMorning": "Good Morning",
+  "goodAfternoon": "Good Afternoon",
+  "goodEvening": "Good Evening",
+  "todo": "To-do List",
+  "addTask": "Add Task",
+  "profile": "Profile",
+  "theme": "Theme",
+  "language": "Language",
+  "weather": "Weather",
+  "home": "Home"
+}
