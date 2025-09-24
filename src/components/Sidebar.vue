@@ -1,16 +1,8 @@
 <template>
   <aside class="w-56 p-4" :class="bgClass">
     <ul>
-      <li
-        v-for="item in menuItems"
-        :key="item.title"
-        class="mb-4"
-      >
-        <router-link
-          :to="item.route"
-          :class="linkClass"
-          :active-class="activeLinkClass"
-        >
+      <li v-for="item in menuItems" :key="item.title" class="mb-4">
+        <router-link :to="item.route" :class="linkClass" :active-class="activeLinkClass">
           {{ item.title }}
         </router-link>
       </li>
@@ -21,9 +13,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
-
 const theme = useTheme()
-
 // Menu items
 const menuItems = [
   { title: 'Dashboard', route: '/' },
@@ -31,23 +21,20 @@ const menuItems = [
   { title: 'Weather', route: '/weather' },
   { title: 'Profile', route: '/profile' },
 ]
-
 // Background color based on theme
 const bgClass = computed(() =>
   theme.global.current.value.dark ? 'bg-gray-800' : 'bg-gray-200'
 )
-
 // Text color and hover based on theme
 const linkClass = computed(() => {
   if (theme.global.current.value.dark) {
-    return 'block font-semibold text-gray-200 hover:text-indigo-400'
+    return 'block font-semibold text-gray-200 hover:text-[#991B1B]'
   } else {
-    return 'block font-semibold text-gray-800 hover:text-indigo-600'
+    return 'block font-semibold text-gray-800 hover:text-[#4C0519]'
   }
 })
-
 // Active link color based on theme
 const activeLinkClass = computed(() =>
-  theme.global.current.value.dark ? 'text-indigo-400' : 'text-indigo-600'
+  theme.global.current.value.dark ? 'text-[#991B1B]' : 'text-[#4C0519]'
 )
 </script>

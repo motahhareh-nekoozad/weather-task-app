@@ -18,7 +18,7 @@
       class="mt-4"
     ></v-select>
 
-    <v-btn color="primary" class="mt-6" @click="saveSettings">{{ t('save') }}</v-btn>
+    <v-btn color="secondary" class="mt-6" @click="saveSettings">{{ t('save') }}</v-btn>
   </v-container>
 </template>
 

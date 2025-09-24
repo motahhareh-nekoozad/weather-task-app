@@ -3,6 +3,7 @@
   "goodMorning": "Good Morning",
   "goodAfternoon": "Good Afternoon",
   "goodEvening": "Good Evening",
+  "goodNight": "Good Night",
   "todo": "To-do List",
   "addTask": "Add Task",
   "profile": "Profile",
@@ -10,5 +11,12 @@
   "language": "Language",
   "weather": "Weather",
   "home": "Home",
-  "name": "Name"
+  "name": "Name",
+  "enter-your-name":"Please Enter Your Name",
+  "newTask":"New Task",
+  "noTask":"No tasks yet",
+  "selectCity": "Select a city",
+  "temperature": "Temperature",
+  "windSpeed": "Wind Speed",
+  "windDirection": "Wind Direction"
 }

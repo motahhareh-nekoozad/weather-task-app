@@ -1,5 +1,5 @@
 <template>
-  <v-list-item class="bg-primary rounded-lg px-4 py-2">
+  <v-list-item class="bg-primary  rounded-lg px-4 py-2">
     <div class="d-flex items-center justify-space-between w-full">
       <div class="flex-1 mr-4">
         <!-- Edit mode -->
@@ -22,7 +22,7 @@
         </v-btn>
 
         <!-- Save button -->
-        <v-btn icon @click="saveEdit" v-if="isEditing">
+        <v-btn  icon @click="saveEdit" v-if="isEditing">
           <v-icon>mdi-check</v-icon>
         </v-btn>
 

@@ -3,6 +3,7 @@
   "goodMorning": "صبح بخیر",
   "goodAfternoon": "ظهر بخیر",
   "goodEvening": "عصر بخیر",
+  "goodNight": "شب بخیر",
   "todo": "کارها",
   "addTask": "اضافه کردن کار",
   "profile": "پروفایل",
@@ -10,5 +11,12 @@
   "language": "زبان",
   "weather": "آب و هوا",
   "home": "خانه",
-  "name": "نام"
+  "name": "نام",
+  "enter-your-name":"لطفا نام خود را وارد کنید",
+  "newTask":"کار جدید",
+  "noTask":"هنوز کاری وجود ندارد",
+    "selectCity": "یک شهر انتخاب کنید",
+  "temperature": "دمای هوا",
+  "windSpeed": "سرعت باد",
+  "windDirection": "جهت باد"
 }

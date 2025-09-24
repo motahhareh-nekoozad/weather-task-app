@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-text-field v-model="newTodo" label="New Task" @keyup.enter="addTodo"></v-text-field>
-    <v-btn class="mb-4" @click="addTodo">Add</v-btn>
+    <v-text-field v-model="newTodo" :label="t('newTask')" @keyup.enter="addTodo"></v-text-field>
+    <v-btn class="mb-4 bg-secondary" @click="addTodo">{{ t('addTask') }}</v-btn>
 
     <v-list v-auto-animate class="bg-transparent d-flex flex-column" style="gap: 8px;">
       <template v-if="todos.length">
@@ -9,7 +9,7 @@
       </template>
       <template v-else>
         <v-list-item>
-          <v-list-item-title>No tasks yet</v-list-item-title>
+          <v-list-item-title class="text-center">{{t('noTask')}}</v-list-item-title>
         </v-list-item>
       </template>
     </v-list>
@@ -18,6 +18,10 @@
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n'
+
+
+const { t } = useI18n()
 
 interface Todo {
   id: number;
