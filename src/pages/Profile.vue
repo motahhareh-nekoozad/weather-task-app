@@ -1,5 +1,5 @@
 <template>
-  <DefaultLayout>
+  <div>
     <v-container>
       <v-text-field v-model="name" label="Name" @change="saveSettings"></v-text-field>
       <v-select
@@ -15,7 +15,7 @@
         @change="saveSettings"
       ></v-select>
     </v-container>
-  </DefaultLayout>
+  </div>
 </template>
 
 <script lang="ts" setup>

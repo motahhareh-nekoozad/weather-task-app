@@ -1,5 +1,5 @@
 <template>
-  <DefaultLayout>
+  <div>
     <v-container>
       <v-text-field v-model="newTodo" label="New Task" @keyup.enter="addTodo"></v-text-field>
       <v-btn @click="addTodo">Add</v-btn>
@@ -12,7 +12,7 @@
         />
       </v-list>
     </v-container>
-  </DefaultLayout>
+  </div>
 </template>
 
 <script lang="ts" setup>

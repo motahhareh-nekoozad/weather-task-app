@@ -1,30 +1,24 @@
 <template>
-  <v-navigation-drawer
-    app
-    permanent
-    width="220"
-  >
-    <v-list density="compact">
-      <v-list-item
-        v-for="item in menuItems"
-        :key="item.title"
-        :to="item.route"
-        link
-      >
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>{{ item.title }}</v-list-item-title>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+  <aside class="w-56 bg-gray-200 p-4">
+    <ul>
+      <li v-for="item in menuItems" :key="item.title" class="mb-4">
+        <router-link
+          :to="item.route"
+          class="block font-semibold text-gray-700 hover:text-indigo-600"
+          active-class="text-indigo-600"
+        >
+          {{ item.title }}
+        </router-link>
+      </li>
+    </ul>
+  </aside>
 </template>
 
 <script lang="ts" setup>
 const menuItems = [
-  { title: 'Home', route: '/', icon: 'mdi-home' },
-  { title: 'To-do List', route: '/todo', icon: 'mdi-format-list-bulleted' },
-  { title: 'Weather', route: '/weather', icon: 'mdi-weather-partly-cloudy' },
-  { title: 'Profile', route: '/profile', icon: 'mdi-account' },
-];
+  { title: 'Dashboard', route: '/' },
+  { title: 'Todos', route: '/todo' },
+  { title: 'Weather', route: '/weather' },
+  { title: 'Profile', route: '/profile' },
+]
 </script>

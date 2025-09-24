@@ -1,21 +1,21 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <Header />
-    </v-app-bar>
+  <div class="flex flex-col min-h-screen">
+    <!-- Header -->
+    <Header />
 
-    <Sidebar />
+    <div class="flex flex-1">
+      <!-- Sidebar -->
+      <Sidebar />
 
-    <v-main>
-      <v-container fluid>
+      <!-- Main Content -->
+      <main class="flex-1 p-4 bg-gray-100">
         <slot />
-      </v-container>
-    </v-main>
+      </main>
+    </div>
 
-    <v-footer app>
-      <Footer />
-    </v-footer>
-  </v-app>
+    <!-- Footer -->
+    <Footer />
+  </div>
 </template>
 
 <script lang="ts" setup>

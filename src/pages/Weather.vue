@@ -1,7 +1,7 @@
 <template>
-  <DefaultLayout>
+  <div>
     <WeatherAutocomplete />
-  </DefaultLayout>
+  </div>
 </template>
 
 <script lang="ts" setup>

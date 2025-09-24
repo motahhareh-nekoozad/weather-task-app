@@ -1,23 +1,22 @@
 <template>
-  <DefaultLayout>
-    <div class="text-center ">
-      <h1>{{ greetingMessage }}</h1>
-      <h2>{{ time }}</h2>
-    </div>
-  </DefaultLayout>
+  <v-row>
+    <v-col cols="12" class="text-center">
+      <v-container>
+        <h1>{{ greetingMessage }}</h1>
+        <h2>{{ time }}</h2>
+      </v-container>
+    </v-col>
+  </v-row>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';
-import DefaultLayout from '../layouts/DefaultLayout.vue';
 
 const name = ref(localStorage.getItem('name') || '');
 if (!name.value) name.value = prompt('Enter your name') || 'Guest';
-
 localStorage.setItem('name', name.value);
 
 const time = ref(new Date().toLocaleTimeString());
-
 const greetingMessage = ref('');
 
 const updateGreeting = () => {
