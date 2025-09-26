@@ -1,13 +1,12 @@
 <template>
-  <!-- Apply Vuetify theme class to the root -->
   <div :class="themeClass" class="flex flex-col min-h-screen">
-
     <!-- Header -->
-    <Header />
+    <Header @toggle-drawer="drawerOpen = !drawerOpen" />
 
     <!-- Main content + Sidebar -->
     <div class="flex flex-1">
-      <Sidebar class="flex-shrink-0" />
+      <!-- SideBar for Desktop-->
+      <Sidebar class="hidden md:block flex-shrink-0" />
 
       <!-- Slot content -->
       <main class="flex-1 p-4">
@@ -15,21 +14,27 @@
           <slot />
         </v-container>
       </main>
-
     </div>
 
-    <!-- Footer sticky to bottom -->
+    <!-- Footer sticky -->
     <Footer class="mt-auto" />
+
+    <v-navigation-drawer v-model="drawerOpen" temporary location="left" class="p-0"
+      :style="{ backgroundColor: 'transparent' }">
+      <Sidebar class="h-full w-full" />
+    </v-navigation-drawer>
+
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useTheme } from 'vuetify'
 
 const theme = useTheme()
+const drawerOpen = ref(false)
 
-// Computed Vuetify theme class for dark/light
+// Computed Vuetify theme class
 const themeClass = computed(() =>
   theme.global.current.value.dark ? 'v-theme--dark' : 'v-theme--light'
 )

@@ -22,7 +22,7 @@
         </v-btn>
 
         <!-- Save button -->
-        <v-btn  icon @click="saveEdit" v-if="isEditing">
+        <v-btn  icon @mousedown.prevent.stop="saveEdit" v-if="isEditing">
           <v-icon>mdi-check</v-icon>
         </v-btn>
 
