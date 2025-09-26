@@ -18,5 +18,6 @@
   "selectCity": "Select a city",
   "temperature": "Temperature",
   "windSpeed": "Wind Speed",
-  "windDirection": "Wind Direction"
+  "windDirection": "Wind Direction",
+  "noCitySelected":"No City Selected Yet"
 }

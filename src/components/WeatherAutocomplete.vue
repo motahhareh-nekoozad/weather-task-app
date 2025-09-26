@@ -1,45 +1,65 @@
 <template>
   <!-- City Selector -->
-  <v-autocomplete v-model="city" :items="cities.map(c => c.city)" :placeholder="t('selectCity')" variant="outlined"
-    hide-details density="comfortable" clearable />
+  <v-autocomplete
+    v-model="city"
+    :items="cities.map(c => c.city)"
+    :placeholder="t('selectCity')"
+    variant="outlined"
+    hide-details
+    density="comfortable"
+    clearable
+  />
 
   <!-- Weather Info -->
-  <div class="flex flex-col text-center border rounded-md mt-6 p-6" v-if="weather && selectedCity">
-    <h2 class="text-lg font-bold mb-2">{{ selectedCity.city }}</h2>
-    <p> {{ weather.temperature }}°C</p>
-    <p> {{ weather.windspeed }} km/h</p>
+  <div class="flex flex-col items-center justify-center text-center border rounded-md mt-6 p-6 min-h-[120px]">
+    <!-- Loading Spinner -->
+    <div v-if="weatherStore.loading" class="flex justify-center items-center h-full">
+      <v-progress-circular indeterminate color="primary" size="48" />
+    </div>
+
+    <!-- No City Selected -->
+    <div v-else-if="!weatherStore.selectedCity">
+      {{ t('noCitySelected') }}
+    </div>
+
+    <!-- Weather Data -->
+    <div v-else>
+      <h2 class="text-lg font-bold mb-2">{{ weatherStore.selectedCity.city }}</h2>
+      <p>{{ weatherStore.currentWeather?.temperature }}°C</p>
+      <p>{{ weatherStore.currentWeather?.windspeed }} km/h</p>
+    </div>
   </div>
 </template>
+
+
 
 <script lang="ts" setup>
 import { ref, onMounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import citiesData from '../cities.json'
+import { useWeatherStore } from '../store/weather'
 
 const { t } = useI18n()
+const weatherStore = useWeatherStore()
 
-const cities = ref<any[]>([])
 const city = ref('')
-const weather = ref<any>(null)
-const selectedCity = ref<any>(null)
 
+// Load cities on mount
 onMounted(() => {
-  cities.value = citiesData
+  weatherStore.setCities(citiesData)
 })
 
-watch(city, async (newCity) => {
-  if (!newCity) return
-
-  selectedCity.value = cities.value.find(c => c.city === newCity)
-  if (!selectedCity.value) return
-
-  const lat = parseFloat(selectedCity.value.lat)
-  const lon = parseFloat(selectedCity.value.lng)
-
-  const res = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
-  )
-  const data = await res.json()
-  weather.value = data.current_weather
+// Watch for city selection and update store
+watch(city, (newCity) => {
+  if (newCity) {
+    weatherStore.selectCity(newCity)
+  } else {
+    // Clear selected city and weather when input is cleared
+    weatherStore.selectedCity = null
+    weatherStore.currentWeather = null
+  }
 })
+
+// For autocomplete items
+const cities = ref(citiesData)
 </script>

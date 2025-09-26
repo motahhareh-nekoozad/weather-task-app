@@ -18,5 +18,6 @@
     "selectCity": "یک شهر انتخاب کنید",
   "temperature": "دمای هوا",
   "windSpeed": "سرعت باد",
-  "windDirection": "جهت باد"
+  "windDirection": "جهت باد",
+  "noCitySelected":"هنوز هیچ شهری انتخاب نشده است"
 }
